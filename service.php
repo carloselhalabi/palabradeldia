@@ -25,9 +25,15 @@
 
       // create a Crawler
       $crawler = $client->request('GET', 'http://feeds.feedblitz.com/english-word-of-the-day-for-spanish&x=1');  
-      $word = array();
+
+      // get the title
       $title = $crawler->filter('item title')->text();
-      $description = $crawler->filter('item description')->text();
+
+      // get the text
+      $text = $crawler->filter('item description')->text();
+	
+      // and strip everything but paragraphs and jumps
+      $description = strip_tags($text, '<br><p>');
 
       return array(
         'title' => $title,
