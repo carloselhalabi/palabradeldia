@@ -1,4 +1,7 @@
 <center>
-  <h1>{$title}</h1>
-  {$description}
+  <h1>La palabra del d&iacute;a es:</h1>
+  <h2>{$title}</h2>
+  <div>
+    {$details}
+  </div>
 </center>
