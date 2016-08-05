@@ -32,12 +32,12 @@
       // get the text
       $text = $crawler->filter('item description')->text();
 	
-      // and strip everything but paragraphs and jumps
-      $description = strip_tags($text, '<br><p>');
+      // and strip style 
+      $details = preg_replace('/(<[^>]+) style=".*?"/i', '$1', $text);
 
       return array(
         'title' => $title,
-        'description' => $description
+        'details' => $details
       );
     }
   } 
